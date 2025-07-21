@@ -42,12 +42,12 @@ const NewArrivals = () => {
 
 
   return (
-    <div className="mt-20">
+    <div className="lg:h-screen mt-10">
       <h1 className="text-center font-bold font-tomorrow lg:text-h1-desktop text-h1-mobile">
         NEW ARRIVALS
       </h1>
 
-      <div className="flex w-full pl-8 lg:px-8 gap-2 mt-8">
+      <div className="flex w-full pl-8 lg:px-8 gap-2 mt-4">
         <Swiper
           modules={[Pagination]}
           className="mySwiper"
@@ -93,7 +93,7 @@ const NewArrivals = () => {
                   {/* Product Image */}
                   <div className="flex justify-center">
                     <img
-                      className="h-[250px] lg:h-[450px] object-contain"
+                      className="h-[250px] lg:h-[300px] object-contain"
                       src={
                         collection.imageUrls?.[0] ||
                         "https://via.placeholder.com/300"
@@ -103,11 +103,11 @@ const NewArrivals = () => {
                   </div>
 
                   {/* Details */}
-                  <div className="flex flex-col mx-8 text-left pr-10 mt-2 lg:mt-4 font-rubik font-medium">
+                  <div className="flex flex-col mx-4 text-left pr-10 mt-2 lg:mt-2 font-rubik font-medium">
                     <p className="text-body-mobile lg:text-body-desktop">
                       {collection.title}
                     </p>
-                    <p className="text-body-mobile lg:text-subtext-desktop">
+                    <p className="text-body-mobile lg:text-subtext-desktop font-light text-[#282929]">
                       {collection.description}
                     </p>
 
@@ -121,12 +121,12 @@ const NewArrivals = () => {
                     </div>
 
                     {/* Price */}
-                    <div className="mt-1 lg:mt-4 mb-2 space-x-4">
+                    <div className="mt-1 lg:mt-2 mb-2 space-x-4">
                       <p className="space-x-2">
-                        <span className="line-through font-light text-body-mobile lg:text-subtext-desktop  text-sub-text-best">
+                        <span className="text-h4-mobile lg:text-h4-desktop font-medium text-black">
                           ₹{collection.actualprice || "499"}
                         </span>
-                        <span className="  text-h4-mobile lg:text-h4-mobile font-medium   text-black">
+                        <span className="line-through font-light  text-body-mobile lg:text-body-mobile   text-[#282929]">
                           ₹{collection.price || "999"}
                         </span>
                         
@@ -135,7 +135,7 @@ const NewArrivals = () => {
                   </div>
 
                   {/* Add to Cart - Fixed at bottom */}
-                  <div className="mt-auto flex border-2 border-home-bg-black w-fit mx-auto px-16 lg:px-8 py-2 lg:py-4 text-home-bg-black font-medium">
+                  <div className="mt-auto flex border-2 border-home-bg-black w-fit mx-auto px-16 lg:px-8 py-2 lg:py-2 text-home-bg-black font-medium">
                     <button onClick={() => addToCart(collection)}>ADD TO CART</button>
                   </div>
                 </motion.div>
@@ -144,7 +144,7 @@ const NewArrivals = () => {
           )}
         </Swiper>
       </div>
-      <div className="flex justify-center mt-8 lg:mt-16">
+      <div className="flex justify-center mt-8 lg:mt-8">
         <div className="w-3/5 lg:w-[500px] h-2 bg-gray-200 rounded-full overflow-hidden">
           <div
             id="custom-progress-bar"
@@ -153,7 +153,7 @@ const NewArrivals = () => {
           ></div>
         </div>
       </div>
-      <div className="flex justify-center mt-8">
+      <div className="flex justify-center mt-4 lg:mt-8 mb-8 lg:mb-0">
         <button className="bg-home-bg-black text-white font-rubik px-20 py-4 font-medium text-[16px]">
           VIEW ALL
         </button>

@@ -313,7 +313,7 @@ const WfhProducts = () => {
         </div>
       </div>
       <Suspense>
-        <Bulk />
+        {/* <Bulk /> */}
         <Footer />
       </Suspense>
     </div>

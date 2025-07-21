@@ -26,7 +26,7 @@ const Collection = () => {
           transition={{ duration: 1 }}
           className="font-rubik font-medium lg:text-h2-desktop text-h2-mobile text-home-bg-black"
         >
-          DISCOVER NOW
+          DISCOVER OUR
         </motion.h1>
         <motion.h1
           initial={{ opacity: 0 }}

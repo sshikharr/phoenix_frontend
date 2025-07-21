@@ -101,7 +101,7 @@ const GamingProducts = () => {
   return (
     <div className="w-full h-screen">
       <Header />
-      <div className="w-full px-8 lg:px-16 h-fit flex flex-col lg:flex-row pt-10 lg:pt-20">
+      <div className="w-full px-8 lg:px-16 h-fit flex flex-col lg:flex-row pt-10 lg:pt-10">
         <div className="hidden lg:block w-full lg:w-1/5 h-fit">
           <h1 className="font-rubik text-home-bg-black">
             Collections /{" "}
@@ -329,7 +329,7 @@ const GamingProducts = () => {
       </div>
 
       <Suspense>
-        <Bulk />
+        {/* <Bulk /> */}
         <Footer />
       </Suspense>
     </div>

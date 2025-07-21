@@ -180,7 +180,7 @@ const ExecutiveProducts = () => {
         </div>
       </div>
       <Suspense>
-        <Bulk />
+        {/* <Bulk /> */}
         <Footer />
       </Suspense>
     </div>

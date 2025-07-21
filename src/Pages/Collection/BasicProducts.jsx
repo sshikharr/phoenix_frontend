@@ -314,7 +314,7 @@ const BasicProducts = () => {
         </div>
       </div>
       <Suspense>
-        <Bulk />
+        {/* <Bulk /> */}
         <Footer />
       </Suspense>
     </div>

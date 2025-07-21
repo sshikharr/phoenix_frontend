@@ -319,7 +319,7 @@ const BossProducts = () => {
       </div>
 
       <Suspense>
-        <Bulk />
+        {/* <Bulk /> */}
         <Footer />
       </Suspense>
     </div>

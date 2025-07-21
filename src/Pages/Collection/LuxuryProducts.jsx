@@ -314,7 +314,7 @@ const LuxuryProducts = () => {
         </div>
       </div>
       <Suspense>
-        <Bulk />
+        {/* <Bulk /> */}
         <Footer />
       </Suspense>
     </div>

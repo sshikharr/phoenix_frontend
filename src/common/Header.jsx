@@ -322,7 +322,7 @@ const Header = () => {
 
       {/* ---------------------------Shop By Div-------------------------------------- */}
       {isShopByOpen && (
-        <div className="z-20 absolute top-[150px] w-full h-[450px]  bg-white flex">
+        <div className="z-20 absolute top-[90px] w-full h-[450px]  bg-white flex">
           <div className="w-3/4 h-full  grid grid-cols-5 px-16  py-16 gap-16">
             <div className="font-rubik">
               <p className="text-[18px] font-medium">Support Needs</p>
@@ -420,7 +420,7 @@ const Header = () => {
 
       {/* -----------------------Collection Div---------------------------- */}
       {isCollectionOpen && (
-        <div className="z-20 absolute top-[150px] w-full h-[450px]  bg-white  px-16 py-16">
+        <div className="z-20 absolute top-[90px] w-full h-[450px]  bg-white  px-16 py-16">
           <h1 className="font-tomorrow font-bold text-[32px] pl-16">
             OUR COLLECTIONS
           </h1>
@@ -1809,14 +1809,17 @@ const Header = () => {
         )}
       </AnimatePresence>
 
-      {/* ---------------------------------DIV 1-------------------------------------------- */}
-      <div className=" bg-home-bg w-full h-fit text-center py-4">
-        <p className="font-rubik font-light text-subtext-mobile lg:text-subtext-desktop">
+      <div className="hidden lg:block  w-full z-10">
+        {/* ---------------------------------DIV 1-------------------------------------------- */}
+      <div className=" bg-home-bg w-full h-fit text-center py-1">
+        <p className="font-rubik font-medium text-subtext-mobile lg:text-[14px]">
           ❤️SHOP NOW AND GET 10% OFF - USE CODE (FIRSTBUY)
         </p>
       </div>
+
+     
       {/* ---------------------------------DIV 2-------------------------------------------- */}
-      <div className=" hidden w-full h-fit lg:flex bg-home-bg-black ">
+      <div className="w-full h-fit lg:flex items-center bg-home-bg-black ">
         {/* ===========Div 2-1 ============ */}
         <div className="hidden w-2/5  text-white font-rubik lg:flex lg:pl-16  items-center gap-8 text-[16px]">
           <div
@@ -1827,7 +1830,7 @@ const Header = () => {
                 setIsCollectionOpen(false);
               }
             }}
-            className={`py-8 f-full flex items-center space-x-1 ${
+            className={`py-4 f-full flex items-center space-x-1 ${
               isShopByOpen ? "border-b-4 border-home-bg" : ""
             }`}
           >
@@ -1837,7 +1840,7 @@ const Header = () => {
             </a>
           </div>
           <div
-            className={`py-8 f-full flex items-center space-x-1
+            className={`py-4 f-full flex items-center space-x-1
             ${isCollectionOpen ? "border-b-4 border-home-bg" : ""}`}
             onClick={(e) => {
               e.preventDefault();
@@ -1852,15 +1855,15 @@ const Header = () => {
               <img className="w-3 h-2" src={down} alt="" />
             </a>
           </div>
-          <div className={`py-8 f-full`}>
+          <div className={`py-4 f-full`}>
             <p>
               <Link to="/track-order">Track Order</Link>
             </p>
           </div>
-          <div className=" py-8 f-full  ">
+          <div className=" py-4 f-full  ">
             <a href="">FAQs</a>
           </div>
-          <div className="py-8 f-full   ">
+          <div className="py-4 f-full   ">
             <a href="">Contact Us</a>
           </div>
         </div>
@@ -1868,13 +1871,13 @@ const Header = () => {
         {/* ===========Div 2-2 ============ */}
         <div className="w-1/5  flex justify-center items-center ">
           <Link to="/">
-            <p className="font-tomorrow font-bold text-white text-[22px] py-8">
-              PHEONIX
+            <p className="font-tomorrow font-bold text-white text-[22px] py-4 uppercase">
+              Phoenix
             </p>
           </Link>
         </div>
         {/* ===========Div 2-3 ============ */}
-        <div className="w-2/5   text-white pr-32 py-8  font-rubik ">
+        <div className="w-2/5   text-white pr-32 py-4  font-rubik ">
           <nav className="flex justify-end gap-8 ">
             <a
               onClick={(e) => {
@@ -1915,9 +1918,18 @@ const Header = () => {
           </nav>
         </div>
       </div>
+       </div>
       {/* For Mobile */}
-      <div className="w-full flex lg:hidden justify-center items-center  h-fit bg-home-bg-black ">
-        <div className="w-3/5  pl-4  py-8 ">
+      <div className="lg:hidden">
+
+      
+      <div className=" bg-home-bg w-full h-fit text-center py-1">
+        <p className="font-rubik font-medium text-subtext-mobile lg:text-[14px]">
+          ❤️SHOP NOW AND GET 10% OFF - USE CODE (FIRSTBUY)
+        </p>
+      </div>
+      <div className="w-full flex  justify-center items-center  h-fit bg-home-bg-black ">
+        <div className="w-3/5  pl-4  py-4 ">
           <a href="">
             <img
               onClick={(e) => {
@@ -1930,14 +1942,14 @@ const Header = () => {
             />
           </a>
         </div>
-        <div className="w-3/5  py-8 ">
+        <div className="w-3/5  py-4 ">
           <Link to="/">
-            <p className="font-tomorrow font-bold text-white text-h2-mobile text-center">
-              PHEONIX
+            <p className="font-tomorrow font-bold text-white text-h2-mobile text-center uppercase">
+              Phoenix
             </p>
           </Link>
         </div>
-        <div className="w-3/5 pr-4  flex justify-end items-center gap-4 py-8">
+        <div className="w-3/5 pr-4  flex justify-end items-center gap-4 py-4">
           <a href="">
             <img className="w-6 h-6" src={search} alt="" />
           </a>
@@ -1969,6 +1981,7 @@ const Header = () => {
               )}
             </button>
         </div>
+      </div>
       </div>
     </div>
   );
