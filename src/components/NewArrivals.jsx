@@ -19,7 +19,7 @@ const NewArrivals = () => {
     const fetchCollections = async () => {
       try {
         const res = await fetch(
-          "http://localhost:5000/api/products/all-products?limit=8"
+          "https://phoenix-backend-50z8.onrender.com/api/products/all-products?limit=8"
         );
         const data = await res.json();
 

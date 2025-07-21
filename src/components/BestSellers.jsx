@@ -21,7 +21,7 @@ const BestSellers = () => {
     const fetchCollections = async () => {
       try {
         const res = await fetch(
-          "http://localhost:5000/api/products/all-products?limit=6"
+          "https://phoenix-backend-50z8.onrender.com/api/products/all-products?limit=6"
         );
         const data = await res.json();
 
@@ -42,7 +42,7 @@ const BestSellers = () => {
     const fetchTopProduct = async () => {
       try {
         const res = await fetch(
-          "http://localhost:5000/api/products/all-products?limit=1"
+          "https://phoenix-backend-50z8.onrender.com/api/products/all-products?limit=1"
         );
         const data = await res.json();
 
