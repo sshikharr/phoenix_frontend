@@ -31,6 +31,7 @@ import delivery from "../assets/delivery2.png";
 import add from "../assets/add.png";
 import { FixedSizeList as List } from "react-window";
 import { CartContext } from "../context/CartContext";
+import { ArrowRight, ShoppingCart } from "lucide-react";
 
 const Header = () => {
   const { cartItems, increaseQty, decreaseQty, removeFromCart } =
@@ -457,9 +458,34 @@ const Header = () => {
               </div>
               <div className="px-0">
                 {cartItems.length === 0 ? (
-                  <div className="text-center mt-10 text-subtext-mobile lg:text-subtext-desktop font-roboto">
-                    <p>Your cart is empty.</p>
+                <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+                  <div className="relative mb-6">
+                    <div className="w-24 h-24 bg-gray-200 rounded-full flex items-center justify-center">
+                      <ShoppingCart className="w-12 h-12 text-gray-400" />
+                    </div>
+                    <div className="absolute -top-2 -right-2 w-8 h-8 bg-red-500 rounded-full flex items-center justify-center">
+                      <span className="text-white text-sm font-bold">0</span>
+                    </div>
                   </div>
+
+                  {/* Main Heading */}
+                  <h2 className="text-2xl lg:text-3xl font-bold text-gray-800 mb-4 text-center">
+                    Your cart is empty
+                  </h2>
+
+                  {/* Subtext */}
+                  <p className="text-gray-600 text-center mb-8 max-w-md leading-relaxed">
+                    Looks like you haven't added any items to your cart yet. 
+                    Start shopping to find amazing products!
+                  </p>
+
+                  {/* Continue Shopping Button */}
+                  <button className="bg-home-bg hover:bg-black text-black hover:text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200 flex items-center gap-2 mb-6"
+                  onClick={() => setIsCartOpen(false)}>
+                    Continue shopping
+                    <ArrowRight className="w-4 h-4" />
+                  </button>
+                </div>
                 ) : (
                   <List
                     height={
@@ -536,7 +562,9 @@ const Header = () => {
             transition={{ duration: 0.5 }}
             className="fixed inset-0 z-50 bg-black bg-opacity-50"
           >
-            <div className="fixed lg:w-1/3  w-full h-screen lg:left-[30%]  bg-white pt-10">
+            <div
+              className="fixed lg:w-1/3 w-full lg:left-[30%] bg-white py-10 mt-10 overflow-y-auto h-[90vh] max-h-[90vh] scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-100"
+            >
               <div className="relative flex w-full px-4 text-center justify-center items-center">
                 <img
                   onClick={(e) => {
@@ -565,14 +593,6 @@ const Header = () => {
                       </p>
                     </div>
                     <div className="flex items-center gap-2">
-                      {/* <p className="font-roboto text-body-mobile lg:text-body-desktop">
-                        {getTotalItems()} Item{getTotalItems() > 1 ? "s" : ""}{" "}
-                        (₹{" "}
-                        {new Intl.NumberFormat("en-IN").format(
-                          calculateSubtotal()
-                        )}
-                        )
-                      </p> */}
                       <img
                         className={`w-4 transform transition-transform ${
                           isExpanded ? "rotate-180" : "rotate-0"
@@ -590,7 +610,7 @@ const Header = () => {
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
                         transition={{ duration: 0.5 }}
-                        className="px-4 py-4  border-black"
+                        className="px-4 py-4 border-black"
                       >
                         <p className="font-roboto text-body-mobile lg:text-body-desktop">
                           Here’s some additional order information:
@@ -637,7 +657,7 @@ const Header = () => {
                       initial={{ opacity: 0 }}
                       whileInView={{ opacity: 1 }}
                       transition={{ duration: 0.5 }}
-                      className="px-4 py-4  border-black"
+                      className="px-4 py-4 border-black"
                     >
                       <p className="font-roboto text-body-mobile lg:text-body-desktop">
                         Here’s some additional order information:
@@ -680,18 +700,10 @@ const Header = () => {
                       </div>
                     </div>
                     {/* Pin Code */}
-
                     <div className="relative">
-                      {/* Background Overlay */}
-                      {/* {pinCodeForm && (
-                        <div className="fixed  bg-black bg-opacity-50 z-40"></div>
-                      )} */}
-
-                      {/* Page Content */}
                       <div className={`${pinCodeForm ? "relative z-50" : ""}`}>
-                        {/* Your Page Content Goes Here */}
                         {pinCodeForm && (
-                          <div className="fixed z-50 left-0 lg:left-[30%] w-full lg:w-1/3  bg-white border rounded-t-[10px] py-4 px-2  bottom-0">
+                          <div className="fixed z-50 left-0 lg:left-[30%] w-full lg:w-1/3 bg-white border rounded-t-[10px] py-4 px-2 bottom-0">
                             <div className="flex">
                               <div className="w-1/2">
                                 <p className="font-roboto text-body-mobile lg:text-body-desktop">
@@ -744,7 +756,7 @@ const Header = () => {
 
                     {deliveryForm && (
                       <div className="">
-                        <div className="fixed  lg:left-[30%] left-0 h-full w-full lg:w-1/3 bottom-0 z-50  border border-black bg-white  py-4 px-2">
+                        <div className="lg:left-[30%] left-0 w-full bottom-0 z-50 border border-black bg-white py-4 px-2">
                           <div className="flex">
                             <div className="w-1/2">
                               <p className="font-roboto text-body-mobile lg:text-body-desktop">
@@ -767,7 +779,7 @@ const Header = () => {
                             <form action="">
                               <div className="flex items-center w-full gap-2">
                                 <div className="w-2/5 flex">
-                                  <p className="font-roboto text-auth-border  text-subtext-mobile lg:text-subtext-desktop">
+                                  <p className="font-roboto text-auth-border text-subtext-mobile lg:text-subtext-desktop">
                                     Address
                                   </p>
                                 </div>
@@ -789,7 +801,6 @@ const Header = () => {
                                   />
                                 </label>
                                 <div className="flex gap-4 mt-4">
-                                  {/* Input 1 */}
                                   <label className="space-y-2 w-1/2">
                                     <p className="font-roboto text-subtext-mobile lg:text-subtext-desktop">
                                       City*
@@ -802,8 +813,6 @@ const Header = () => {
                                       onChange={(e) => setCity(e.target.value)}
                                     />
                                   </label>
-
-                                  {/* Input 2 */}
                                   <label className="space-y-2 w-1/2">
                                     <p className="font-roboto text-subtext-mobile lg:text-subtext-desktop">
                                       State*
@@ -823,22 +832,19 @@ const Header = () => {
                                       Full Address*
                                     </p>
                                     <textarea
-                                      className="text-subtext-mobile lg:text-subtext-desktop border h-28 border-black w-full  lg:placeholder:text-subtext-desktop placeholder:text-subtext-mobile placeholder:text-auth-border px-2 py-2"
+                                      className="text-subtext-mobile lg:text-subtext-desktop border h-28 border-black w-full lg:placeholder:text-subtext-desktop placeholder:text-subtext-mobile placeholder:text-auth-border px-2 py-2"
                                       type="text"
                                       placeholder="Your Address"
                                       value={address}
                                       required
-                                      onChange={(e) =>
-                                        setAddress(e.target.value)
-                                      }
+                                      onChange={(e) => setAddress(e.target.value)}
                                     />
                                   </label>
                                 </div>
                               </div>
-
                               <div className="flex items-center w-full mt-4 gap-2">
                                 <div className="w-2/5 flex">
-                                  <p className="font-roboto text-auth-border  text-subtext-mobile lg:text-subtext-desktop">
+                                  <p className="font-roboto text-auth-border text-subtext-mobile lg:text-subtext-desktop">
                                     Personal Details
                                   </p>
                                 </div>
@@ -872,9 +878,7 @@ const Header = () => {
                                     placeholder="Full Name"
                                     value={fullName}
                                     required
-                                    onChange={(e) =>
-                                      setFullName(e.target.value)
-                                    }
+                                    onChange={(e) => setFullName(e.target.value)}
                                   />
                                 </label>
                               </div>
@@ -889,9 +893,7 @@ const Header = () => {
                                     placeholder="Phone Number"
                                     value={phoneNumber}
                                     required
-                                    onChange={(e) =>
-                                      setPhoneNumber(e.target.value)
-                                    }
+                                    onChange={(e) => setPhoneNumber(e.target.value)}
                                   />
                                 </label>
                               </div>
@@ -920,7 +922,7 @@ const Header = () => {
                           <div
                             key={index}
                             onClick={() => setSelectedAddress(addressData)}
-                            className={`border font-roboto  text-subtext-mobile lg:text-subtext-desktop py-2 cursor-pointer ${
+                            className={`border font-roboto text-subtext-mobile lg:text-subtext-desktop py-2 cursor-pointer ${
                               selectedAddress === addressData
                                 ? "border-2 border-black"
                                 : "border-black"
@@ -933,7 +935,7 @@ const Header = () => {
                               <div className="w-1/2 flex justify-end">
                                 <button
                                   onClick={() => handleDeleteAddress(index)}
-                                  className="px-4 py-1 text-black font-roboto border  border-black"
+                                  className="px-4 py-1 text-black font-roboto border border-black"
                                 >
                                   Delete
                                 </button>
@@ -941,8 +943,7 @@ const Header = () => {
                             </div>
                             <div className="px-2 w-2/3 mt-2">
                               <p>
-                                {addressData.address}, {addressData.city},{" "}
-                                {addressData.state}, {savedPinCode}
+                                {addressData.address}, {addressData.city}, {addressData.state}, {savedPinCode}
                               </p>
                             </div>
                             <div className="w-full px-2 flex items-center text-black text-opacity-50">
@@ -957,7 +958,6 @@ const Header = () => {
                         ))
                       )}
                     </div>
-
                     {savedAddress.length === 0 && (
                       <div
                         onClick={(e) => {
@@ -983,15 +983,12 @@ const Header = () => {
                   </div>
                 )}
               </div>
-              <div className="w-full lg:w-1/3 fixed bottom-4 z-20  px-4">
+              <div className="w-full mt-4 z-20 px-4">
                 <button
                   className={`w-full text-white font-rubik py-2 ${
-                    selectedAddress
-                      ? "bg-black cursor-pointer"
-                      : "bg-gray-400 cursor-not-allowed"
+                    selectedAddress ? "bg-black cursor-pointer" : "bg-gray-400 cursor-not-allowed"
                   }`}
                   disabled={!selectedAddress}
-                  // onClick={handleProceedPayment}
                   onClick={() => navigate("/payment")}
                 >
                   Proceed To Payment
@@ -1861,7 +1858,7 @@ const Header = () => {
             </p>
           </div>
           <div className=" py-4 f-full  ">
-            <a href="">FAQs</a>
+            <Link to="/faqs">FAQs</Link>
           </div>
           <div className="py-4 f-full   ">
             <a href="">Contact Us</a>
