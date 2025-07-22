@@ -323,7 +323,7 @@ const Header = () => {
 
       {/* ---------------------------Shop By Div-------------------------------------- */}
       {isShopByOpen && (
-        <div className="z-20 absolute top-[90px] w-full h-[450px]  bg-white flex">
+        <div className="z-20 absolute top-[88px] w-full h-[450px]  bg-white flex">
           <div className="w-3/4 h-full  grid grid-cols-5 px-16  py-16 gap-16">
             <div className="font-rubik">
               <p className="text-[18px] font-medium">Support Needs</p>
@@ -421,7 +421,7 @@ const Header = () => {
 
       {/* -----------------------Collection Div---------------------------- */}
       {isCollectionOpen && (
-        <div className="z-20 absolute top-[90px] w-full h-[450px]  bg-white  px-16 py-16">
+        <div className="z-20 absolute top-[88px] w-full h-[450px]  bg-white  px-16 py-16">
           <h1 className="font-tomorrow font-bold text-[32px] pl-16">
             OUR COLLECTIONS
           </h1>
@@ -1805,8 +1805,8 @@ const Header = () => {
           </motion.div>
         )}
       </AnimatePresence>
-
-      <div className="hidden lg:block  w-full z-10">
+        {/* Desktop Nav */}
+      <div className="hidden lg:block  w-full">
         {/* ---------------------------------DIV 1-------------------------------------------- */}
       <div className=" bg-home-bg w-full h-fit text-center py-1">
         <p className="font-rubik font-medium text-subtext-mobile lg:text-[14px]">
@@ -1861,7 +1861,7 @@ const Header = () => {
             <Link to="/faqs">FAQs</Link>
           </div>
           <div className="py-4 f-full   ">
-            <a href="">Contact Us</a>
+            <Link to="/contact-us">Contact Us</Link>
           </div>
         </div>
 

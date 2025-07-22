@@ -73,10 +73,10 @@ const ContactUs = () => {
               type="text"
               className="w-full py-2 border rounded-[20px] pl-4 placeholder:text-body-mobile placeholder:font-rubik placeholder:font-medium"
             />
-            <input
+            <textarea
               placeholder="Comment"
               type="text"
-              className="w-full h-36  border rounded-[20px] pl-4  placeholder:text-body-mobile placeholder:font-rubik placeholder:font-medium"
+              className="resize-none w-full h-36 py-2  border rounded-[20px] pl-4  placeholder:text-body-mobile placeholder:font-rubik placeholder:font-medium"
             />
             <button className="bg-auth-bg text-white px-10 font-rubik font-medium rounded-[10px] py-2">
               Send
